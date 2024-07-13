@@ -311,6 +311,25 @@ const stopBackgroundMusic = () => {
   music.pause();
   music.currentTime = 0;
 };
+const playBackgroundMusic = () => {
+  const music = document.getElementById('background-music');
+  music.play();
+};
+
+const stopBackgroundMusic = () => {
+  const music = document.getElementById('background-music');
+  music.pause();
+  music.currentTime = 0;
+};
 
 // Run fetch and animation in sequence
-fetchData();
+const fetchData = () => {
+  fetch("customize.json")
+    .then(data => data.json())
+    .then(data => {
+      // Existing code...
+
+      playBackgroundMusic(); // Play music when data is fetched and processed
+    });
+};
+
